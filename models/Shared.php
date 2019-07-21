@@ -50,7 +50,7 @@ class Shared extends model {
         return $stringBtn;
     }
 
-    public function montaDataTable() {
+    public function montaDataTable($campoPesq = null, $valorPesq = null) {
 
         $index = 0;
 
@@ -161,7 +161,12 @@ class Shared extends model {
             
         };
 
-        return Ssp::complex($_POST, $this->config, $this->table, "id", $columns, null, "situacao='ativo'");
+        $clausulaWhere = "situacao='ativo'";
+        if($campoPesq != null && $valorPesq != null){
+            $clausulaWhere .= " AND $campoPesq = '$valorPesq'";
+        }
+
+        return Ssp::complex($_POST, $this->config, $this->table, "id", $columns, null, $clausulaWhere);
     }
 
     public function unico($campo, $valor) {

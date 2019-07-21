@@ -12,10 +12,6 @@ class ajaxController extends controller{
     $user = new Usuarios();
 
     $this->parametros = new Parametros;
-    $this->servicos = new Servicos;
-    $this->clientes = new Clientes;
-    $this->orcamentos = new Orcamentos;
-    $this->ordemservico = new Ordemservico;
 
     //verifica se está logado
     if($user->isLogged() == false){
@@ -339,9 +335,10 @@ class ajaxController extends controller{
   
   /////// PRODUTOS
   public function dataTableAjax(){
+    //  print_r($_POST['valorPesq']); exit;
       $shared = new Shared($_POST['module']);
       echo json_encode(
-        $shared->montaDataTable()
+        $shared->montaDataTable($_POST['campoPesq'], $_POST['valorPesq'])
       );
       //print_r($shared->montaDataTable() );exit;
   }
@@ -755,6 +752,20 @@ class ajaxController extends controller{
     }
     echo json_encode($dados);
   }
+
+  public function buscaEmaileID(){
+    $dados = array();
+    if(isset($_POST) && !empty($_POST)){
+
+      $nome = trim(addslashes($_POST['nome']));
+
+      $us = new Usuarios();
+      $dados = $us->buscaEmaileID($nome);
+      
+    }
+    echo json_encode($dados);
+  }
+  
 
   
   

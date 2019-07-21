@@ -19,13 +19,16 @@ class homeController extends controller{
     }
      
     public function index() {
-        
+      
       /////// FINANCEIRO
       $relatorioFinanceiro =  new Relatoriofluxocaixa();
       $sharedFinanceiro = new Shared('fluxocaixa');
+
+      
       
       $dados['infoUser'] = $_SESSION;
       $dados["colunas"] = $sharedFinanceiro->nomeDasColunas();
+      
       $dados["meta"] = $relatorioFinanceiro->meta();
       
       $this->loadTemplate('home', $dados);

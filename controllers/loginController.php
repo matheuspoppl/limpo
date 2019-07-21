@@ -14,6 +14,7 @@ class loginController extends controller{
             
             
             if($usuario->fazerLogin($email,$senha)){
+               
                header("Location: ".BASE_URL."/home");
                exit;
             }else{

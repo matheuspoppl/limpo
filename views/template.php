@@ -13,31 +13,13 @@
          "link" => "/#",
          "filhos" => [
             [
-               "text" => "Clientes",
+               "text" => "Genérico",
                "icon" => "fas fa-handshake",
-               "permissao" => "clientes_ver",
-               "link" => "/clientes"
-            ],
-            [
-               "text" => "Funcionários",
-               "icon" => "fas fa-users",
-               "permissao" => "funcionarios_ver",
-               "link" => "/funcionarios"
-            ],
-            [
-               "text" => "Produtos",
-               "icon" => "fas fa-boxes",
-               "permissao" => "produtos_ver",
-               "link" => "/produtos"
-            ],
-            [
-               "text" => "Serviços Complementares",
-               "icon" => "fas fa-toolbox",
-               "permissao" => "servicoscomplementares_ver",
-               "link" => "/servicoscomplementares"
+               "permissao" => "generico_ver",
+               "link" => "/generico"
             ]
          ]
-      ],
+      ],   
       [
          "text" => "Financeiro",
          "icon" => "fas fa-money-bill-alt",
@@ -90,7 +72,7 @@
             ]
          ]
       ],
-      [
+      [      
          "text" => "Configurações",
          "icon" => "fas fa-cogs",
          "permissao" => "%",
@@ -113,11 +95,10 @@
                "icon" => "fas fa-cog",
                "permissao" => "parametros_ver",
                "link" => "/parametros"
-            ],            
+            ]           
          ]
       ]
-
-   ];
+   ];   
 ?>
 <!doctype html>
 <html lang="pt-BR" class="h-100">
